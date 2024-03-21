@@ -2,6 +2,7 @@ package io.github.ciriti
 
 import kotlinx.coroutines.delay
 
+@Throws(Throwable::class)
 suspend fun rc(
     initialDelay: Long = 200,
     maxAttempts: Int = 30,
