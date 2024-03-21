@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="ExampleInstrumentedTest (1)">
+        <State />
+      </entry>
+      <entry key="GIVEN_a_deleay_VERIFY_the_label_PASS()">
+        <State />
+      </entry>
+      <entry key="activityLaunches()">
+        <State />
+      </entry>
+      <entry key="activityLaunches2()">
+        <State />
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="app.androidTest">
+        <State />
+      </entry>
+      <entry key="app.main">
+        <State />
+      </entry>
+      <entry key="app.unitTest">
+        <State />
+      </entry>
+      <entry key="myapplication">
+        <State />
+      </entry>
+      <entry key="myapplication.androidTest">
+        <State />
+      </entry>
+      <entry key="myapplication.main">
+        <State />
+      </entry>
+      <entry key="myapplication.unitTest">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>
