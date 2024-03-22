@@ -47,8 +47,8 @@ publishing {
                 developers {
                     developer {
                         id.set("ciriti")
-                        name.set("Your Name")
-                        email.set("Your Email")
+                        name.set("Carmelo Iriti")
+                        email.set("ciriti@gmail.com")
                     }
                 }
                 scm {
