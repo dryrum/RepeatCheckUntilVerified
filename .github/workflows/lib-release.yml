@@ -75,7 +75,7 @@ jobs:
         run: ./gradlew androidSourcesJar javadocJar
 
       - name: Publish to MavenCentral
-        run: ./gradlew repeat-check:publish
+        run: ./gradlew repeat-check:publish -Dorg.gradle.internal.http.connectionTimeout=600000 -Dorg.gradle.internal.http.socketTimeout=600000
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
