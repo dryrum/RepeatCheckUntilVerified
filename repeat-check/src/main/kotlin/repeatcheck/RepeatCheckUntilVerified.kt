@@ -29,18 +29,16 @@ suspend fun repeatCheckUntilVerified(
                 }
                 lastFailureResult = attemptResult
             }
-            else -> throw IllegalStateException(
-                """
+            else -> throw IllegalStateException("""
                 Unexpected TestRes subtype detected. 
                 TestRes is a sealed class and should only have two known subclasses: Verified and NotVerified.
-                """.trimIndent()
-            )
+            """.trimIndent())
         }
     }
     throw lastFailureResult.th
 }
 
-internal fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
+fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
     return try {
         conditionCheckTask()
         TestRes.Verified
@@ -49,7 +47,7 @@ internal fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
     }
 }
 
-internal sealed class TestRes {
+sealed class TestRes {
     object Verified : TestRes()
     data class NotVerified(val th: Throwable) : TestRes()
 }
