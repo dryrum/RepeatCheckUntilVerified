@@ -15,4 +15,9 @@ class RepeatCheckUntilVerifiedKtTest {
         var counter = 0
         repeatCheckUntilVerified { assertEquals(4, counter++) }
     }
+    @Test
+    fun `check until repeatCheckUntilVerified matches the expected value1`() = runBlocking {
+        var counter = 0
+        repeatCheckUntilVerified { assertEquals(4, counter++) }
+    }
 }
