@@ -25,6 +25,14 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.register("versionTxt") {
+    group = "release-utility"
+    doLast {
+        val version = project.property("VERSION_NAME") as String
+        File(projectDir, "version.txt").writeText(version)
+    }
+}
+
 addCommitPushConfig {
     fileList = listOf(
         "${rootDir.path}/CHANGELOG.md",

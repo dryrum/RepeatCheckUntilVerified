@@ -33,12 +33,12 @@ jobs:
         id: release_note
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./cmplibrary/release_note.txt
+          path: ./repeat-check/release_note.txt
       - name: Get the version
         id: get_version
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./cmplibrary/version.txt
+          path: ./repeat-check/version.txt
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
