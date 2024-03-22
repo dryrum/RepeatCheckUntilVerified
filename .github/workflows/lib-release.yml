@@ -2,7 +2,7 @@ name: Repeat-Check Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, release/0.0.1 ]
 
 jobs:
   build:
