@@ -84,6 +84,7 @@ publishing {
                 username = project.property('ossrhUsername')
                 password = project.property('ossrhPassword')
             }
+            timeout = 300
         }
     }
 }
