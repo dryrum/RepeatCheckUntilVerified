@@ -1,16 +1,12 @@
 plugins {
-    kotlin("jvm") version "1.9.22"
-    id("org.jetbrains.dokka") version "1.6.10"
+    kotlin("jvm")
 }
-
-apply(from = "../scripts/publish-mavencentral.gradle")
 
 group = project.property("GROUP_ID") as String
-version = rootProject.extra.get("VERSION_NAME") as String
+version = project.property("VERSION_NAME") as String
 
-repositories {
-    mavenCentral()
-}
+
+apply(from = "../scripts/publish-mavencentral.gradle")
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")

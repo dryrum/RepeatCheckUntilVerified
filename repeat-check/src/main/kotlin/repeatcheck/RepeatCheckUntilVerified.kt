@@ -1,4 +1,4 @@
-package io.github.ciriti
+package io.github.ciriti.repeatcheck
 
 import kotlinx.coroutines.delay
 

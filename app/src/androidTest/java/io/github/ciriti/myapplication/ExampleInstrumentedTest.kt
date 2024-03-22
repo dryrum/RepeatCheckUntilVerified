@@ -2,7 +2,7 @@ package io.github.ciriti.myapplication
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import io.github.ciriti.repeatcheck.repeatCheckUntilVerified
+import io.github.ciriti.repeatcheck.rc
 import kotlinx.coroutines.runBlocking
 
 import org.junit.Test
@@ -19,7 +19,7 @@ class ExampleInstrumentedTest {
     @Test
     fun activityLaunches() = runBlocking<Unit> {
         ActivityScenario.launch(MainActivity::class.java)
-        repeatCheckUntilVerified { assertGreetingVisible() }
+        rc { assertGreetingVisible() }
     }
 
     @Test
