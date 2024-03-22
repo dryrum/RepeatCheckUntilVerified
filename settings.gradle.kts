@@ -24,6 +24,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "RepeatCheckUntilVerified"
-include(":repeat-check-until-verified")
-include(":app")
+include(":test-app")
 include("repeat-check")
