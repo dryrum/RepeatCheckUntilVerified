@@ -1,9 +1,12 @@
 plugins {
     kotlin("jvm") version "1.9.22"
+    id("org.jetbrains.dokka") version "1.6.10"
 }
 
-group = "io.github.ciriti"
-version = "1.0-SNAPSHOT"
+apply(from = "../scripts/publish-mavencentral.gradle")
+
+group = project.property("GROUP_ID") as String
+version = rootProject.extra.get("VERSION_NAME") as String
 
 repositories {
     mavenCentral()

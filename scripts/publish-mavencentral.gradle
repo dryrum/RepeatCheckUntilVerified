@@ -1,0 +1,86 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+//apply plugin: 'org.jetbrains.dokka'
+
+ext["signing.keyId"] = ''
+ext["signing.password"] = ''
+ext["signing.secretKeyRingFile"] = ''
+ext["ossrhUsername"] = ''
+ext["ossrhPassword"] = ''
+ext["sonatypeStagingProfileId"] = ''
+
+File secretPropsFile = project.rootProject.file('local.properties')
+if (secretPropsFile.exists()) {
+    Properties p = new Properties()
+    p.load(new FileInputStream(secretPropsFile))
+    p.each { name, value ->
+        ext[name] = value
+    }
+} else {
+    ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID')
+    ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
+    ext["signing.secretKeyRingFile"] = rootDir.path + "/" + System.getenv('SIGNING_SECRET_KEY_RING_FILE')
+    ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
+    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
+    ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = project.property('GROUP_ID')
+            artifactId = project.property('ARTIFACT_ID')
+            version = project.property('VERSION_NAME')
+
+            pom {
+                name.set(project.property('POM_NAME'))
+                description.set(project.property('POM_DESCRIPTION'))
+                url.set(project.property('WEB_SITE_URL'))
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("ciriti")
+                        name.set("Your Name")
+                        email.set("Your Email")
+                    }
+                }
+                scm {
+                    connection.set(project.property('POM_VCS_URL'))
+                    developerConnection.set(project.property('POM_VCS_URL'))
+                    url.set(project.property('POM_VCS_URL'))
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = project.property('ossrhUsername')
+                password = project.property('ossrhPassword')
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+tasks.withType(AbstractPublishToMaven) {
+    onlyIf { !project.version.toString().endsWith('SNAPSHOT') }
+}
+
+tasks.withType(Sign) {
+    onlyIf { !project.version.toString().endsWith('SNAPSHOT') }
+}
+
+tasks.publish.dependsOn 'build'
