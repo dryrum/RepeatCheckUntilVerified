@@ -43,14 +43,14 @@ fun `check until the alias matches the expected value`() = runBlocking {
 ```kotlin
 fun `check until the alias matches the expected value`() = runBlocking {
     var counter = 0
-    rc(backup = { println("If fail execute the backup action") }) { assertEquals(4, counter++) }
+    rc(backup = { println("If it fails, execute the backup action.") }) { assertEquals(4, counter++) }
 }
 ```
 ### Advanced Usage
 ```kotlin
 fun `check until the alias matches the expected value`() = runBlocking {
     var counter = 0
-    rc(initialDelay = 200, maxAttempts = 30, backup = { /* Custom backup logicn*/ } ){ assertEquals(4, counter++) }
+    rc(initialDelay = 200, maxAttempts = 30, backup = { /* Custom backup */ } ){ assertEquals(4, counter++) }
 }
 ```
 ## Note
