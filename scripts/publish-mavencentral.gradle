@@ -9,20 +9,6 @@ ext["ossrhUsername"] = ''
 ext["ossrhPassword"] = ''
 ext["sonatypeStagingProfileId"] = ''
 
-task androidSourcesJar(type: Jar) {
-    archiveClassifier.set('sources')
-    if (project.plugins.findPlugin("com.android.library")) {
-        from android.sourceSets.main.java.srcDirs
-    } else {
-        from sourceSets.main.java.srcDirs
-    }
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    from javadoc.outputDirectory
-}
-
 File secretPropsFile = project.rootProject.file('local.properties')
 if (secretPropsFile.exists()) {
     Properties p = new Properties()
@@ -47,9 +33,6 @@ publishing {
             groupId = project.property('GROUP_ID')
             artifactId = project.property('ARTIFACT_ID')
             version = project.property('VERSION_NAME')
-
-            artifact androidSourcesJar
-            artifact javadocJar
 
             pom {
                 name.set(project.property('POM_NAME'))

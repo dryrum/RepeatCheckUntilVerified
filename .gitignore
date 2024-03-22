@@ -1,6 +1,5 @@
 # gpg
-repeat-check/*.gpg
-repeat-check/version.txt
+repeat-check/0FE2A3FE.gpg
 
 # Built application files
 *.apk
