@@ -37,8 +37,8 @@ replaceInFile {
     docs {
         create("doc") {
             path = "${rootDir.path}/README.md"
-            find = "com.sourcepoint.cmplibrary:cmplibrary:(\\d)+\\.(\\d)+\\.(\\d)+"
-            replaceWith = "com.sourcepoint.cmplibrary:cmplibrary:$versionName"
+            find = "io.github.ciriti:repeat-check:(\\d)+\\.(\\d)+\\.(\\d)+"
+            replaceWith = "io.github.ciriti:repeat-check:$versionName"
         }
     }
 }
