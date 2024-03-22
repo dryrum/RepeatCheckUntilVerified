@@ -24,3 +24,28 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+addCommitPushConfig {
+    fileList = listOf(
+        "${rootDir.path}/CHANGELOG.md",
+        "${rootDir.path}/README.md",
+    )
+}
+
+replaceInFile {
+    val versionName = project.property("VERSION_NAME") as String
+    docs {
+        create("doc") {
+            path = "${rootDir.path}/README.md"
+            find = "com.sourcepoint.cmplibrary:cmplibrary:(\\d)+\\.(\\d)+\\.(\\d)+"
+            replaceWith = "com.sourcepoint.cmplibrary:cmplibrary:$versionName"
+        }
+    }
+}
+
+changeLogConfig {
+    val versionName = project.property("VERSION_NAME") as String
+    changeLogPath = rootDir.path + "/CHANGELOG.md"
+    content = file(  "${rootDir.path}/${project.name}/release_note.txt").readText()
+    version = versionName
+}

@@ -40,7 +40,7 @@ suspend fun repeatCheckUntilVerified(
     throw lastFailureResult.th
 }
 
-fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
+internal fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
     return try {
         conditionCheckTask()
         TestRes.Verified
@@ -49,7 +49,7 @@ fun checkCondition(conditionCheckTask: () -> Unit): TestRes {
     }
 }
 
-sealed class TestRes {
+internal sealed class TestRes {
     object Verified : TestRes()
     data class NotVerified(val th: Throwable) : TestRes()
 }
