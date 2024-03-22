@@ -22,8 +22,8 @@ Include RepeatCheck directly in your test source directory. Ensure kotlinx.corou
 
 ```kotlin
 dependencies {
-    testImplementation("io.github.ciriti:repeat-check:0.0.1")
-    androidTestImplementation("io.github.ciriti:repeat-check:0.0.1")
+    testImplementation("io.github.ciriti:repeat-check:0.0.0")
+    androidTestImplementation("io.github.ciriti:repeat-check:0.0.0")
     // Other dependencies...
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
 }
