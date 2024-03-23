@@ -1,6 +1,6 @@
 [![Unit Tests](https://github.com/dryrum/RepeatCheckUntilVerified/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/dryrum/RepeatCheckUntilVerified/actions/workflows/unit-tests.yml)
 [![Repeat-Check Release](https://github.com/dryrum/RepeatCheckUntilVerified/actions/workflows/lib-release.yml/badge.svg)](https://github.com/dryrum/RepeatCheckUntilVerified/actions/workflows/lib-release.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.ciriti/repeat-check)](https://central.sonatype.com/search?q=g:io.github.ciriti&smo=true)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.ciriti/repeat-check)](https://central.sonatype.com/artifact/io.github.ciriti/repeat-check)
 
 # RepeatCheck Utility
 
